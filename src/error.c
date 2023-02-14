@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/02/14 20:19:09 by malaakso         ###   ########.fr       */
+/*   Created: 2023/02/14 19:37:40 by malaakso          #+#    #+#             */
+/*   Updated: 2023/02/14 19:46:02 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+static void	print_exit(void)
 {
-	//t_push_swap	data;
+	ft_putstr_fd("Error\n", 2);
+	exit (1);
+}
 
-	is_valid_input(ac, av);
-	//read_args(data, ac, av);// todo
-	//run_algorithms(data); // todo: runs algos, chooses shortest, prints its commands
-	ft_printf("Passed validity checks, debug msg\n");
-	return (0);
+// handle codes:
+// 0 - just exit
+// 1 - error text, no cleanup
+
+void	error(int handle)
+{
+	if (handle == 0)
+		exit(1);
+	else if (handle == 1)
+		print_exit();
 }
