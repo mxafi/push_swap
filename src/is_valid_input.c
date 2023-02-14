@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:52:29 by malaakso          #+#    #+#             */
-/*   Updated: 2023/02/14 20:14:42 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/02/14 20:26:12 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	is_valid_input(int ac, char **av)
 		j = i + 1;
 		while (j < ac)
 		{
-			if (av[i] == av[j])
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				error (1);
 			j++;
 		}
