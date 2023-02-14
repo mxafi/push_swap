@@ -6,7 +6,7 @@
 #    By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 18:33:13 by malaakso          #+#    #+#              #
-#    Updated: 2023/02/14 20:16:19 by malaakso         ###   ########.fr        #
+#    Updated: 2023/02/14 21:51:23 by malaakso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ FOLDER_LIST		=	$(H_FOLDER) $(C_FOLDER) $(OBJ_FOLDER) \
 					$(LIBFT_FOLDER)
 
 H_FILES			=	push_swap.h
-C_FILES			=	push_swap.c error.c is_valid_input.c
+C_FILES			=	push_swap.c error.c is_valid_input.c read_args.c \
+					psl_swap.c stack_ops.c psl_push.c
 
 H_PATHS			=	$(addprefix $(H_FOLDER)/, $(H_FILES))
 C_PATHS			=	$(addprefix $(C_FOLDER)/, $(C_FILES))

@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/02/14 20:22:24 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:50:21 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,19 @@
 
 typedef struct s_push_swap
 {
-	int	**stack_a;
-	int	**stack_b;
+	int	*stack_a;
+	int	*stack_b;
 	int	stack_a_size;
 	int	stack_b_size;
 }				t_push_swap;
 
 void	error(int handle);
 int		is_valid_input(int ac, char **av);
+void	read_args(t_push_swap *data, int ac, char **av);
+void	sa(t_push_swap *data);
+void	sb(t_push_swap *data);
+void	ss(t_push_swap *data);
+int		stack_push(int *stack, int size, int value);
+int		stack_pop(int *stack, int size);
 
 #endif
