@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_ops.c                                        :+:      :+:    :+:   */
+/*   psl_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 21:19:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/02 14:23:03 by malaakso         ###   ########.fr       */
+/*   Created: 2023/03/02 12:15:31 by malaakso          #+#    #+#             */
+/*   Updated: 2023/03/02 12:22:38 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_push(int *stack, int size, int value)
+void	ra(t_push_swap *data)
 {
-	int	new_size;
+	int	tmp;
 
-	new_size = size + 1;
-	while (size > 0)
-	{
-		stack[size - 1] = stack[size];
-		size--;
-	}
-	stack[0] = value;
-	return (new_size);
+	tmp = data->stack_a[0];
+	stack_pop(data->stack_a, data->stack_a_size);
+	data->stack_a[data->stack_a_size - 1] = tmp;
 }
 
-int	stack_pop(int *stack, int size)
+void	rb(t_push_swap *data)
 {
-	int	i;
-	int	new_size;
+	int	tmp;
 
-	new_size = size - 1;
-	i = 0;
-	while (i < size - 1)
-	{
-		stack[i] = stack[i + 1];
-		i++;
-	}
-	return (new_size);
+	tmp = data->stack_b[0];
+	stack_pop(data->stack_b, data->stack_b_size);
+	data->stack_b[data->stack_b_size - 1] = tmp;
+}
+
+void	rr(t_push_swap *data)
+{
+	ra(data);
+	rb(data);
 }
