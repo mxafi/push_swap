@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/16 15:16:49 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:36:43 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ void	print_stacks(t_push_swap *data)
 	ft_printf("\n");
 }
 
-run_algorithm(t_push_swap *data)
+void	run_algorithm(t_push_swap *data)
 {
-	
+	if (is_a_sorted)
+		ft_printf("Stack A is sorted!\n");
 }
 
 int	main(int ac, char **av)
@@ -44,10 +45,12 @@ int	main(int ac, char **av)
 
 	data = malloc(sizeof(t_push_swap));
 	// handle malloc fail
+	// check validity: some arguments are bigger than an integer
 	is_valid_input(ac, av);
 	read_args(data, ac, av);
 	ft_printf("Passed validity checks\n");
 	print_stacks(data);
 	run_algorithm(data);
+	print_stacks(data);
 	return (0);
 }
