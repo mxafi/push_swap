@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:19:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/02 14:23:03 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:09:38 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	stack_push(int *stack, int size, int value)
 	new_size = size + 1;
 	while (size > 0)
 	{
-		stack[size - 1] = stack[size];
+		stack[size] = stack[size - 1];
 		size--;
 	}
 	stack[0] = value;
