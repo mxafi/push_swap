@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/16 15:35:49 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:40:05 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int		stack_push(int *stack, int size, int value);
 int		stack_pop(int *stack, int size);
 int		is_a_sorted(t_push_swap *data);
 int		is_b_sorted(t_push_swap *data);
+void	sort_two(t_push_swap *data);
+void	sort_three(t_push_swap *data);
 
 #endif
