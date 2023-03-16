@@ -6,14 +6,11 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/02 14:58:17 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:16:49 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// implement taking input as a single string with spaces as delimiters
-// implement guard against input of only spaces in the string
 
 void	print_stacks(t_push_swap *data)
 {
@@ -36,6 +33,11 @@ void	print_stacks(t_push_swap *data)
 	ft_printf("\n");
 }
 
+run_algorithm(t_push_swap *data)
+{
+	
+}
+
 int	main(int ac, char **av)
 {
 	t_push_swap	*data;
@@ -46,6 +48,6 @@ int	main(int ac, char **av)
 	read_args(data, ac, av);
 	ft_printf("Passed validity checks\n");
 	print_stacks(data);
-	//run_algorithms(data); // todo: runs algos, chooses shortest, prints its commands
+	run_algorithm(data);
 	return (0);
 }
