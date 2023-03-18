@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/16 17:40:05 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:49:18 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ typedef struct s_push_swap
 }				t_push_swap;
 
 void	error(int case_n);
-int		is_valid_input(int ac, char **av);
-void	read_args(t_push_swap *data, int ac, char **av);
+int		grid_len(char **grid);
 void	sa(t_push_swap *data);
 void	sb(t_push_swap *data);
 void	ss(t_push_swap *data);
@@ -37,11 +36,14 @@ void	rr(t_push_swap *data);
 void	rra(t_push_swap *data);
 void	rrb(t_push_swap *data);
 void	rrr(t_push_swap *data);
-int		stack_push(int *stack, int size, int value);
-int		stack_pop(int *stack, int size);
-int		is_a_sorted(t_push_swap *data);
-int		is_b_sorted(t_push_swap *data);
+void	destroy_grid(char **grid);
 void	sort_two(t_push_swap *data);
 void	sort_three(t_push_swap *data);
+int		is_a_sorted(t_push_swap *data);
+int		is_b_sorted(t_push_swap *data);
+int		stack_pop(int *stack, int size);
+int		is_valid_input(int ac, char **av);
+int		stack_push(int *stack, int size, int value);
+void	read_args(t_push_swap *data, int ac, char **av);
 
 #endif

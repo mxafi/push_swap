@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:52:29 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/18 14:59:38 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:07:23 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static int	is_valid_integer(char *str)
 	return (1);
 }
 
-int	contains_no_duplicates(int size, char **word_list)
+int	contains_no_duplicates(int ignore_first_n, int size, char **word_list)
 {
 	int	i;
 	int	j;
 
-	i = 0;
+	i = ignore_first_n;
 	while (i < size)
 	{
 		j = i + 1;
@@ -64,11 +64,29 @@ int	contains_only_integers(int ignore_first_n, int size, char **word_list)
 
 int	is_valid_input(int ac, char **av)
 {
+	char	**word_list;
+	int		word_list_len;
+
 	if (ac == 1)
 		error(0);
-	if (!contains_only_integers(1, ac, av))
-		error(1);
-	if (!contains_no_duplicates(ac, av))
+	if (ac == 2)
+	{
+		word_list = ft_split(av[1], ' ');
+		if (!word_list)
+			error(1);
+		word_list_len = grid_len(word_list);
+		if ((!contains_only_integers(0, word_list_len, word_list))
+			|| (!contains_no_duplicates(0, word_list_len, word_list))
+			|| (!word_list[0]))
+		{
+			destroy_grid(word_list);
+			error(1);
+		}
+		destroy_grid(word_list);
+		return (1);
+	}
+	if ((!contains_only_integers(1, ac, av))
+		|| (!contains_no_duplicates(1, ac, av)))
 		error(1);
 	return (1);
 }
