@@ -6,16 +6,30 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:52:29 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/18 17:07:23 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:50:24 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	is_inside_integer_range(char *str)
+{
+	long	val;
+
+	if (!str)
+		return (0);
+	val = ft_atol(str);
+	if ((val > INT_MAX) || (val < INT_MIN))
+		return (0);
+	return (1);
+}
+
 static int	is_valid_integer(char *str)
 {
 	int	i;
 
+	if (!is_inside_integer_range(str))
+		return (0);
 	i = 0;
 	if (str[i] == '-')
 		i++;
@@ -28,7 +42,8 @@ static int	is_valid_integer(char *str)
 	return (1);
 }
 
-int	contains_no_duplicates(int ignore_first_n, int size, char **word_list)
+static int	contains_no_duplicates(int ignore_first_n,
+	int size, char **word_list)
 {
 	int	i;
 	int	j;
@@ -48,7 +63,8 @@ int	contains_no_duplicates(int ignore_first_n, int size, char **word_list)
 	return (1);
 }
 
-int	contains_only_integers(int ignore_first_n, int size, char **word_list)
+static int	contains_only_integers(int ignore_first_n,
+	int size, char **word_list)
 {
 	int	i;
 
