@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/16 19:16:41 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:51:52 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_stacks(t_push_swap *data)
 	ft_printf("\n");
 }
 
-void	run_algorithm(t_push_swap *data)
+static void	run_algorithm(t_push_swap *data)
 {
 	if (is_a_sorted(data))
 		return ;
@@ -54,11 +54,10 @@ int	main(int ac, char **av)
 {
 	t_push_swap	*data;
 
-	// implement handling of a single string argument
-	// implement check for string of just spaces, it has to Error
+	// implement handling of a single string argument when reading args
 	data = malloc(sizeof(t_push_swap));
-	// handle malloc fail
-	// check validity: some arguments are bigger than an integer
+	if (!data)
+		error(1);
 	is_valid_input(ac, av);
 	read_args(data, ac, av);
 	//ft_printf("Passed validity checks\n");
