@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:52:29 by malaakso          #+#    #+#             */
-/*   Updated: 2023/02/14 20:26:12 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:59:38 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	is_valid_integer(char *str)
 	int	i;
 
 	i = 0;
+	if (str[i] == '-')
+		i++;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -26,31 +28,47 @@ static int	is_valid_integer(char *str)
 	return (1);
 }
 
-int	is_valid_input(int ac, char **av)
+int	contains_no_duplicates(int size, char **word_list)
 {
 	int	i;
 	int	j;
 
-	if (ac == 1)
-		error(0);
-	i = 1;
-	while (i < ac)
-	{
-		if (!is_valid_integer(av[i]))
-			error(1);
-		i++;
-	}
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (i < size)
 	{
 		j = i + 1;
-		while (j < ac)
+		while (j < size)
 		{
-			if (ft_atoi(av[i]) == ft_atoi(av[j]))
-				error (1);
+			if (ft_atoi(word_list[i]) == ft_atoi(word_list[j]))
+				error(1);
 			j++;
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	contains_only_integers(int ignore_first_n, int size, char **word_list)
+{
+	int	i;
+
+	i = ignore_first_n;
+	while (i < size)
+	{
+		if (!is_valid_integer(word_list[i]))
+			error(1);
+		i++;
+	}
+	return (1);
+}
+
+int	is_valid_input(int ac, char **av)
+{
+	if (ac == 1)
+		error(0);
+	if (!contains_only_integers(1, ac, av))
+		error(1);
+	if (!contains_no_duplicates(ac, av))
+		error(1);
 	return (1);
 }
