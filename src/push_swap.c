@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/18 18:14:33 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:56:27 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,15 @@ static void	run_algorithm(t_push_swap *data)
 		sort_two(data);
 	else if (data->stack_a_size == 3)
 		sort_three(data);
-	ft_printf("Running algorithms finished. ");
-	if (is_a_sorted(data))
-		ft_printf("Stack A is sorted!\n");
+	else if (data->stack_a_size <= 10)
+		sort_small(data);
 	else
-		ft_printf("Stack A is NOT sorted! :(\n");
+		sort_small(data);
+	//ft_printf("Running algorithms finished. ");
+	//if (is_a_sorted(data))
+	//	ft_printf("Stack A is sorted!\n");
+	//else
+	//	ft_printf("Stack A is NOT sorted! :(\n");
 }
 
 int	main(int ac, char **av)
@@ -57,9 +61,9 @@ int	main(int ac, char **av)
 		error(1);
 	is_valid_input(ac, av);
 	read_args(data, ac, av);
-	ft_printf("Passed validity checks\n");
-	print_stacks(data);
+	//ft_printf("Passed validity checks\n");
+	//print_stacks(data);
 	run_algorithm(data);
-	print_stacks(data);
+	//print_stacks(data);
 	return (0);
 }

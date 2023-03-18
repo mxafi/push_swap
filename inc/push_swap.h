@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/18 17:49:35 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:57:20 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ long	ft_atol(const char *str);
 void	destroy_grid(char **grid);
 void	sort_two(t_push_swap *data);
 void	sort_three(t_push_swap *data);
+void	sort_small(t_push_swap *data);
 int		is_a_sorted(t_push_swap *data);
 int		is_b_sorted(t_push_swap *data);
 int		stack_pop(int *stack, int size);
+void	print_stacks(t_push_swap *data);
 int		is_valid_input(int ac, char **av);
 int		stack_push(int *stack, int size, int value);
 void	read_args(t_push_swap *data, int ac, char **av);
