@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:37:40 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/19 19:10:19 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/19 19:21:13 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	*safe_malloc(size_t size, int free_true)
 		return (NULL);
 	p = malloc(size);
 	if (!p)
-		return (NULL);
+	{
+		safe_malloc(0, 0);
+		exit (1);
+	}
 	pointer_list_len++;
 	pointer_list[pointer_list_len - 1] = p;
 	return (p);
