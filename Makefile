@@ -6,7 +6,7 @@
 #    By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 18:33:13 by malaakso          #+#    #+#              #
-#    Updated: 2023/03/18 17:41:23 by malaakso         ###   ########.fr        #
+#    Updated: 2023/03/19 18:04:03 by malaakso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,14 @@ H_FILES			=	push_swap.h
 C_FILES			=	push_swap.c error.c is_valid_input.c read_args.c \
 					psl_swap.c stack_ops.c psl_push.c psl_rotate.c \
 					psl_rev_rotate.c sort_check.c sort_small.c grid_ops.c \
-					ft_atol.c
+					ft_atol.c safe_ft_split.c
 
 H_PATHS			=	$(addprefix $(H_FOLDER)/, $(H_FILES))
 C_PATHS			=	$(addprefix $(C_FOLDER)/, $(C_FILES))
 OBJ_PATHS		=	$(addprefix $(OBJ_FOLDER)/, \
 					$(patsubst %.c, %.o, $(C_FILES)))
 
-C_FLAGS_OBJ		=	-Wall -Wextra -Werror
+C_FLAGS_OBJ		=	-Wall -Wextra -Werror -g
 C_FLAGS_NAME	=	$(C_FLAGS_OBJ)
 
 .PHONY: all

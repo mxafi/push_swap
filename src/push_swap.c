@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/18 20:56:27 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/19 17:57:37 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 {
 	t_push_swap	*data;
 
-	data = malloc(sizeof(t_push_swap));
+	data = safe_malloc(sizeof(t_push_swap), 0);
 	if (!data)
 		error(1);
 	is_valid_input(ac, av);
@@ -65,5 +65,6 @@ int	main(int ac, char **av)
 	//print_stacks(data);
 	run_algorithm(data);
 	//print_stacks(data);
+	safe_malloc(0, 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:52:29 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/19 16:32:37 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:23:40 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,18 +89,12 @@ int	is_valid_input(int ac, char **av)
 		error(0);
 	if (ac == 2)
 	{
-		word_list = ft_split(av[1], ' ');
-		if (!word_list)
-			error(1);
+		word_list = safe_ft_split(av[1], ' ');
 		word_list_len = grid_len(word_list);
 		if ((!contains_only_integers(0, word_list_len, word_list))
 			|| (!contains_no_duplicates(0, word_list_len, word_list))
 			|| (!word_list[0]))
-		{
-			destroy_grid(word_list);
 			error(1);
-		}
-		destroy_grid(word_list);
 		return (1);
 	}
 	if ((!contains_only_integers(1, ac, av))
