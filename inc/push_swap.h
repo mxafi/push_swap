@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/19 18:34:17 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:59:28 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	rra(t_push_swap *data);
 void	rrb(t_push_swap *data);
 void	rrr(t_push_swap *data);
 long	ft_atol(const char *str);
-void	sort_two(t_push_swap *data);
-void	sort_three(t_push_swap *data);
-void	sort_small(t_push_swap *data);
+void	sort_two_a(t_push_swap *data);
+void	sort_three_a(t_push_swap *data);
+void	sort_small_a(t_push_swap *data);
+void	sort_big_b(t_push_swap *data);
 int		is_a_sorted(t_push_swap *data);
 int		is_b_sorted(t_push_swap *data);
 int		stack_pop(int *stack, int size);

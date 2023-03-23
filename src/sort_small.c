@@ -6,19 +6,19 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:33:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/18 20:46:53 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:00:04 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two(t_push_swap *data)
+void	sort_two_a(t_push_swap *data)
 {
 	if (data->stack_a[0] > data->stack_a[1])
 		sa(data);
 }
 
-void	sort_three(t_push_swap *data)
+void	sort_three_a(t_push_swap *data)
 {
 	if (data->stack_a[0] < data->stack_a[1])
 	{
@@ -47,7 +47,7 @@ void	sort_three(t_push_swap *data)
 	sa(data);
 }
 
-int	ret_rotations_to_top_a(t_push_swap *data)
+static int	ret_small_rotations_to_top_a(t_push_swap *data)
 {
 	int	i;
 	int	smallest_idx;
@@ -68,13 +68,13 @@ int	ret_rotations_to_top_a(t_push_swap *data)
 		return (smallest_idx);
 }
 
-void	sort_small(t_push_swap *data)
+void	sort_small_a(t_push_swap *data)
 {
 	int	rotations_to_top;
 
 	while (data->stack_a_size > 3)
 	{
-		rotations_to_top = ret_rotations_to_top_a(data);
+		rotations_to_top = ret_small_rotations_to_top_a(data);
 		while (rotations_to_top != 0)
 		{
 			if (rotations_to_top > 0)
@@ -90,7 +90,7 @@ void	sort_small(t_push_swap *data)
 		}
 		pb(data);
 	}
-	sort_three(data);
+	sort_three_a(data);
 	while (data->stack_b_size > 0)
 		pa(data);
 }

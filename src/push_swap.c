@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/19 17:57:37 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:50:04 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static void	run_algorithm(t_push_swap *data)
 	if (is_a_sorted(data))
 		return ;
 	else if (data->stack_a_size == 2)
-		sort_two(data);
+		sort_two_a(data);
 	else if (data->stack_a_size == 3)
-		sort_three(data);
+		sort_three_a(data);
 	else if (data->stack_a_size <= 10)
-		sort_small(data);
+		sort_small_a(data);
 	else
-		sort_small(data);
+		sort_small_a(data);
 	//ft_printf("Running algorithms finished. ");
 	//if (is_a_sorted(data))
 	//	ft_printf("Stack A is sorted!\n");
