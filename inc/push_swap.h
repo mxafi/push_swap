@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 16:59:28 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:06:15 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef struct s_push_swap
 {
 	int	*stack_a;
 	int	*stack_b;
+	int	*stack_c;
 	int	stack_a_size;
 	int	stack_b_size;
+	int	stack_c_size;
 }				t_push_swap;
 
 void	error(int case_n);

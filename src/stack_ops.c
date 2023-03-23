@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:19:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/16 17:09:38 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:12:33 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,11 @@ int	stack_pop(int *stack, int size)
 		i++;
 	}
 	return (new_size);
+}
+
+void	stack_copy_a_to_c(t_push_swap *data)
+{
+	data->stack_c_size = data->stack_a_size;
+	data->stack_c = safe_malloc(data->stack_c_size, 0);
+	ft_memcpy(data->stack_c, data->stack_a, data->stack_c_size);
 }
