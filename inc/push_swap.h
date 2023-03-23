@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:48:30 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:19:07 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	sort_three_a(t_push_swap *data);
 void	sort_small_a(t_push_swap *data);
 int		is_a_sorted(t_push_swap *data);
 int		is_b_sorted(t_push_swap *data);
+void	sort_medium(t_push_swap *data);
 int		stack_pop(int *stack, int size);
 void	print_stacks(t_push_swap *data);
 int		is_valid_input(int ac, char **av);
@@ -60,5 +61,6 @@ char	**safe_ft_split(char const *s, char c);
 void	*safe_malloc(size_t size, int free_true);
 int		stack_push(int *stack, int size, int value);
 void	read_args(t_push_swap *data, int ac, char **av);
+int		ret_small_rotations_to_top_a(t_push_swap *data);
 
 #endif

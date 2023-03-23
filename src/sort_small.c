@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:33:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:00:04 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:18:51 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sort_three_a(t_push_swap *data)
 	sa(data);
 }
 
-static int	ret_small_rotations_to_top_a(t_push_swap *data)
+int	ret_small_rotations_to_top_a(t_push_swap *data)
 {
 	int	i;
 	int	smallest_idx;
