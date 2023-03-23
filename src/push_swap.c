@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:09:05 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:17:39 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ void	print_stacks(t_push_swap *data)
 	while (i < data->stack_b_size)
 	{
 		ft_printf("%i ", data->stack_b[i]);
+		i++;
+	}
+	ft_printf("\nStack C (%i): ", data->stack_c_size);
+	i = 0;
+	while (i < data->stack_c_size)
+	{
+		ft_printf("%i ", data->stack_c[i]);
 		i++;
 	}
 	ft_printf("\n");
