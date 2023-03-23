@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:17:39 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:53:25 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ static void	run_algorithm(t_push_swap *data)
 		sort_small_a(data);
 	else
 		sort_small_a(data);
-	//ft_printf("Running algorithms finished. ");
-	//if (is_a_sorted(data))
-	//	ft_printf("Stack A is sorted!\n");
-	//else
-	//	ft_printf("Stack A is NOT sorted! :(\n");
+	// ft_printf("Running algorithms finished. ");
+	// if (is_c_sorted(data))
+	// 	ft_printf("Stack C is sorted!\n");
+	// else
+	// 	ft_printf("Stack C is NOT sorted! :(\n");
 }
 
 int	main(int ac, char **av)
 {
-	t_push_swap	*data;
+	t_push_swap	*data;//remember to remove -g flag in Makefile
 
 	data = safe_malloc(sizeof(t_push_swap), 0);
 	is_valid_input(ac, av);
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 	//ft_printf("Passed validity checks\n");
 	//print_stacks(data);
 	run_algorithm(data);
-	//print_stacks(data);
+	// print_stacks(data);
 	safe_malloc(0, 1);
 	return (0);
 }

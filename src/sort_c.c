@@ -1,55 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_check.c                                       :+:      :+:    :+:   */
+/*   sort_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 15:24:06 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:47:34 by malaakso         ###   ########.fr       */
+/*   Created: 2023/03/23 17:21:17 by malaakso          #+#    #+#             */
+/*   Updated: 2023/03/23 17:31:41 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_a_sorted(t_push_swap *data)
+void	sort_c(t_push_swap *data)
 {
 	int	i;
+	int	j;
+	int	tmp;
 
-	i = 1;
-	while (i < data->stack_a_size)
-	{
-		if (data->stack_a[i] <= data->stack_a[i - 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	is_b_sorted(t_push_swap *data)
-{
-	int	i;
-
-	i = 1;
-	while (i < data->stack_b_size)
-	{
-		if (data->stack_b[i] <= data->stack_b[i - 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	is_c_sorted(t_push_swap *data)
-{
-	int	i;
-
-	i = 1;
+	i = 0;
 	while (i < data->stack_c_size)
 	{
-		if (data->stack_c[i] <= data->stack_c[i - 1])
-			return (0);
+		j = 0;
+		while (j < data->stack_c_size)
+		{
+			if (data->stack_c[i] < data->stack_c[j])
+			{
+				tmp = data->stack_c[i];
+				data->stack_c[i] = data->stack_c[j];
+				data->stack_c[j] = tmp;
+			}
+			j++;
+		}
 		i++;
 	}
-	return (1);
 }

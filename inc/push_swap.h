@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:06:15 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:48:30 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,18 @@ void	rra(t_push_swap *data);
 void	rrb(t_push_swap *data);
 void	rrr(t_push_swap *data);
 long	ft_atol(const char *str);
+void	sort_c(t_push_swap *data);
+void	sort_big_b(t_push_swap *data);
 void	sort_two_a(t_push_swap *data);
+int		is_c_sorted(t_push_swap *data);
 void	sort_three_a(t_push_swap *data);
 void	sort_small_a(t_push_swap *data);
-void	sort_big_b(t_push_swap *data);
 int		is_a_sorted(t_push_swap *data);
 int		is_b_sorted(t_push_swap *data);
 int		stack_pop(int *stack, int size);
 void	print_stacks(t_push_swap *data);
 int		is_valid_input(int ac, char **av);
+void	stack_copy_a_to_c(t_push_swap *data);
 char	**safe_ft_split(char const *s, char c);
 void	*safe_malloc(size_t size, int free_true);
 int		stack_push(int *stack, int size, int value);
