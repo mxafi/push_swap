@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 16:50:04 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:09:05 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ int	main(int ac, char **av)
 	t_push_swap	*data;
 
 	data = safe_malloc(sizeof(t_push_swap), 0);
-	if (!data)
-		error(1);
 	is_valid_input(ac, av);
 	read_args(data, ac, av);
 	//ft_printf("Passed validity checks\n");

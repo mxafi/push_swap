@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 18:03:57 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/19 18:27:32 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:10:36 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ static int	create_word(char **matrix, char const *s, char c, size_t i)
 
 	current_char_count = char_count(s, c);
 	matrix[i] = safe_malloc(current_char_count + 1, 0);
-	if (!matrix[i])
-		error(0);
 	matrix[i][current_char_count] = 0;
 	current_char_count = 0;
 	while (s[current_char_count] && s[current_char_count] != c)
@@ -97,14 +95,10 @@ char	**safe_ft_split(char const *s, char c)
 	if (!word_count)
 	{
 		matrix = safe_malloc(sizeof(*matrix), 0);
-		if (!matrix)
-			error(0);
 		matrix[0] = 0;
 		return (matrix);
 	}
 	matrix = safe_malloc((word_count + 1) * sizeof(*matrix), 0);
-	if (!matrix)
-		error(0);
 	matrix[word_count] = 0;
 	if (!pop_words(matrix, s, c, word_count))
 		error(0);
