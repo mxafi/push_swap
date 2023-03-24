@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 14:47:21 by malaakso          #+#    #+#             */
-/*   Updated: 2022/11/26 02:02:32 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:10:47 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_int_putnbr_uint_fd(unsigned int n, int fd)
 		count += ft_int_putnbr_fd(n / 10, fd);
 		count += ft_int_putnbr_fd(n % 10, fd);
 	}
-	if (n >= 0 && n < 10)
+	if (n < 10)
 		count += ft_int_putchar_fd((char)n + '0', fd);
 	return (count);
 }
