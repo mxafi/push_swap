@@ -6,25 +6,11 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:56:26 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/24 14:11:39 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:44:29 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ret_a_index(t_push_swap *data, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i != value && i < data->stack_a_size)
-	{
-		if (data->stack_a[i] == value)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
 
 // returns the index of an element that is less than or equals to the cutoff
 // that is the closest to the top of stack A
@@ -74,6 +60,36 @@ static void	move_a_index_to_top(t_push_swap *data, int index)
 	}
 }
 
+static void	push_big_index_b_to_a(t_push_swap *data)
+{
+	int	i;
+	int	largest_idx;
+	int	largest_val;
+
+	i = 1;
+	largest_idx = 0;
+	while (i < data->stack_b_size)
+	{
+		if (data->stack_b[i] > data->stack_b[largest_idx])
+			largest_idx = i;
+		i++;
+	}
+	if (largest_idx == 1)
+		sb(data);
+	else if (largest_idx > 1)
+	{
+		largest_val = data->stack_b[largest_idx];
+		while (data->stack_b[0] != largest_val)
+		{
+			if (largest_idx > (data->stack_b_size / 2))
+				rrb(data);
+			else
+				rb(data);
+		}
+	}
+	pa(data);
+}
+
 void	sort_medium(t_push_swap *data)
 {
 	int	n_of_chunks;
@@ -119,8 +135,6 @@ void	sort_medium(t_push_swap *data)
 		pb(data);
 	}
 	sort_three_a(data);
-	// now we should have a sorted a with 3 elements, all that is left is looping and
-	// finding the biggest number in stack B.. check for optimal case first:
-	// case 1: biggest number pushed to A with (sb, pa)
-	// case 2: choose shortest path using rb and rrb then pa
+	while (data->stack_b_size > 0)
+		push_big_index_b_to_a(data);
 }
