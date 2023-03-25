@@ -6,7 +6,7 @@
 #    By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 18:33:13 by malaakso          #+#    #+#              #
-#    Updated: 2023/03/23 17:56:33 by malaakso         ###   ########.fr        #
+#    Updated: 2023/03/25 15:33:55 by malaakso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ C_PATHS			=	$(addprefix $(C_FOLDER)/, $(C_FILES))
 OBJ_PATHS		=	$(addprefix $(OBJ_FOLDER)/, \
 					$(patsubst %.c, %.o, $(C_FILES)))
 
-C_FLAGS_OBJ		=	-Wall -Wextra -Werror -g
+C_FLAGS_OBJ		=	-Wall -Wextra -Werror
 C_FLAGS_NAME	=	$(C_FLAGS_OBJ)
 
 .PHONY: all
