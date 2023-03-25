@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:19:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 17:45:57 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:35:55 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	stack_copy_a_to_c(t_push_swap *data)
 	int	i;
 
 	data->stack_c_size = data->stack_a_size;
-	data->stack_c = safe_malloc(data->stack_c_size, 0);
+	data->stack_c = safe_malloc(sizeof(int) * data->stack_c_size, 0);
 	i = 0;
 	while (i < data->stack_c_size)
 	{
