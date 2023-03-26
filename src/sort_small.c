@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:33:35 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/23 19:18:51 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/26 19:14:14 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,25 @@ void	sort_three_a(t_push_swap *data)
 		return ;
 	}
 	sa(data);
+}
+
+void	move_a_index_to_top(t_push_swap *data, int index)
+{
+	int	direction;
+	int	val;
+
+	if (index > (data->stack_a_size / 2))
+		direction = -1;
+	else
+		direction = 1;
+	val = data->stack_a[index];
+	while (data->stack_a[0] != val)
+	{
+		if (direction == -1)
+			rra(data);
+		else
+			ra(data);
+	}
 }
 
 int	ret_small_rotations_to_top_a(t_push_swap *data)

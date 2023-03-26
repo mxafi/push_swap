@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:56:26 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/26 18:14:10 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/26 19:24:34 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,30 +41,10 @@ static int	ret_a_index_below_or_eq_cutoff_num(t_push_swap *data, int cutoff)
 	return (-1);
 }
 
-static void	move_a_index_to_top(t_push_swap *data, int index)
-{
-	int	direction;
-	int	val;
-
-	if (index > (data->stack_a_size / 2))
-		direction = -1;
-	else
-		direction = 1;
-	val = data->stack_a[index];
-	while (data->stack_a[0] != val)
-	{
-		if (direction == -1)
-			rra(data);
-		else
-			ra(data);
-	}
-}
-
-static void	push_big_index_b_to_a(t_push_swap *data)
+static int	ret_b_largest_index(t_push_swap *data)
 {
 	int	i;
 	int	largest_idx;
-	int	largest_val;
 
 	i = 1;
 	largest_idx = 0;
@@ -74,6 +54,15 @@ static void	push_big_index_b_to_a(t_push_swap *data)
 			largest_idx = i;
 		i++;
 	}
+	return (largest_idx);
+}
+
+static void	push_big_index_b_to_a(t_push_swap *data)
+{
+	int	largest_idx;
+	int	largest_val;
+
+	largest_idx = ret_b_largest_index(data);
 	if (largest_idx == 1)
 		sb(data);
 	else if (largest_idx > 1)
@@ -90,12 +79,12 @@ static void	push_big_index_b_to_a(t_push_swap *data)
 	pa(data);
 }
 
-void	sort_medium(t_push_swap *data)
+static void	sort_medium_start(t_push_swap *data)
 {
+	int	idx;
 	int	n_of_chunks;
 	int	current_chunk;
 	int	current_chunk_cutoff;
-	int	idx;
 
 	stack_copy_a_to_c(data);
 	sort_c(data);
@@ -116,6 +105,13 @@ void	sort_medium(t_push_swap *data)
 		}
 		current_chunk++;
 	}
+}
+
+void	sort_medium(t_push_swap *data)
+{
+	int	idx;
+
+	sort_medium_start(data);
 	while (data->stack_a_size > 3)
 	{
 		idx = ret_small_rotations_to_top_a(data);
