@@ -6,39 +6,11 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:37:41 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/24 15:14:30 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:25:17 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stacks(t_push_swap *data)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("Stack A (%i): ", data->stack_a_size);
-	while (i < data->stack_a_size)
-	{
-		ft_printf("%i ", data->stack_a[i]);
-		i++;
-	}
-	ft_printf("\nStack B (%i): ", data->stack_b_size);
-	i = 0;
-	while (i < data->stack_b_size)
-	{
-		ft_printf("%i ", data->stack_b[i]);
-		i++;
-	}
-	ft_printf("\nStack C (%i): ", data->stack_c_size);
-	i = 0;
-	while (i < data->stack_c_size)
-	{
-		ft_printf("%i ", data->stack_c[i]);
-		i++;
-	}
-	ft_printf("\n");
-}
 
 static void	run_algorithm(t_push_swap *data)
 {
@@ -52,24 +24,16 @@ static void	run_algorithm(t_push_swap *data)
 		sort_small_a(data);
 	else
 		sort_medium(data);
-	// ft_printf("Running algorithms finished. ");
-	// if (is_c_sorted(data))
-	// 	ft_printf("Stack C is sorted!\n");
-	// else
-	// 	ft_printf("Stack C is NOT sorted! :(\n");
 }
 
 int	main(int ac, char **av)
 {
-	t_push_swap	*data;//remember to remove -g flag in Makefile
+	t_push_swap	*data;
 
 	data = safe_malloc(sizeof(t_push_swap), 0);
 	is_valid_input(ac, av);
 	read_args(data, ac, av);
-	//ft_printf("Passed validity checks\n");
-	//print_stacks(data);
 	run_algorithm(data);
-	// print_stacks(data);
 	safe_malloc(0, 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:56:26 by malaakso          #+#    #+#             */
-/*   Updated: 2023/03/25 15:32:28 by malaakso         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:14:10 by malaakso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	sort_medium(t_push_swap *data)
 
 	stack_copy_a_to_c(data);
 	sort_c(data);
-	n_of_chunks = 3;
+	n_of_chunks = ret_chunks_for_elements(data->stack_a_size);
 	current_chunk = 1;
 	while (current_chunk < n_of_chunks)
 	{

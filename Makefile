@@ -6,7 +6,7 @@
 #    By: malaakso <malaakso@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 18:33:13 by malaakso          #+#    #+#              #
-#    Updated: 2023/03/25 15:33:55 by malaakso         ###   ########.fr        #
+#    Updated: 2023/03/26 16:57:06 by malaakso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ H_FILES			=	push_swap.h
 C_FILES			=	push_swap.c error.c is_valid_input.c read_args.c \
 					psl_swap.c stack_ops.c psl_push.c psl_rotate.c \
 					psl_rev_rotate.c sort_check.c sort_small.c grid_ops.c \
-					ft_atol.c safe_ft_split.c sort_b.c sort_c.c sort_medium.c
+					ft_atol.c safe_ft_split.c sort_b.c sort_c.c sort_medium.c \
+					sort_medium_chunks.c
 
 H_PATHS			=	$(addprefix $(H_FOLDER)/, $(H_FILES))
 C_PATHS			=	$(addprefix $(C_FOLDER)/, $(C_FILES))
